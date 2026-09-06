@@ -92,6 +92,7 @@ body{
   padding: 8vh 6vw 12vh;
   gap: clamp(1.6rem, 3.2vw, 2.4rem);
 }
+.wrap[hidden]{ display: none; }
 
 /* Placa del logo */
 .badge{
