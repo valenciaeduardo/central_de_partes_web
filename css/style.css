@@ -473,6 +473,45 @@ footer a{ color: var(--steel); }
   }
 }
 
+.payments{
+  margin-top: clamp(1.2rem, 2.5vw, 1.6rem);
+  padding-top: clamp(1.2rem, 2.5vw, 1.6rem);
+  border-top: 1px solid rgba(245,245,243,0.10);
+}
+.payments-title{
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  color: var(--steel);
+  text-align: center;
+}
+.payments-row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.5vw, 0.8rem);
+}
+.payments-row img{
+  height: clamp(24px, 2.6vw, 32px);
+  width: auto;
+  padding: 0.5rem 0.8rem;
+  background: #FFFFFF;
+  border: 1px solid #E1E1DD;
+  border-radius: 5px;
+  filter: grayscale(0.4) opacity(0.75);
+  transition: transform .18s ease, filter .18s ease;
+}
+@media (hover: hover){
+  .payments-row img:hover{
+    transform: translateY(-2px);
+    filter: grayscale(0) opacity(1);
+  }
+}
+
 /* -----------------------------------------------------------
    Galería del local
 ----------------------------------------------------------- */
