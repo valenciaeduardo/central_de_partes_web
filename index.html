@@ -265,8 +265,30 @@
   </a>
 </div>
 
+<div class="warn-modal" id="warn-modal" role="dialog" aria-modal="true" aria-labelledby="warn-title" hidden>
+  <div class="warn-card">
+    <button class="warn-close" type="button" id="warn-close" aria-label="Cerrar aviso">&times;</button>
+    <h2 class="warn-title" id="warn-title">¡Tenga cuidado!</h2>
+    <p class="warn-text">Nuestros números celulares no han cambiado; personas inescrupulosas han tratado de suplantarnos.</p>
+    <p class="warn-lines">Nuestras líneas de atención siguen siendo:<br><strong>300 785 5081</strong> · <strong>311 718 7917</strong></p>
+  </div>
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  var warnModal = document.getElementById('warn-modal');
+  var warnClose = document.getElementById('warn-close');
+  warnModal.hidden = false;
+  warnClose.addEventListener('click', function(){
+    warnModal.hidden = true;
+  });
+  warnModal.addEventListener('click', function(e){
+    if(e.target === warnModal){ warnModal.hidden = true; }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !warnModal.hidden){ warnModal.hidden = true; }
+  });
 
   var home = document.querySelector('.wrap');
   var productos = document.getElementById('productos');

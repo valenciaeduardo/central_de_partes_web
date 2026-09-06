@@ -664,3 +664,74 @@ a:focus-visible, button:focus-visible{
   outline: 2px solid var(--red-bright);
   outline-offset: 3px;
 }
+
+/* -----------------------------------------------------------
+   Ventana flotante de advertencia (aparece en cada carga)
+----------------------------------------------------------- */
+.warn-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: rgba(0,0,0,0.78);
+}
+.warn-modal[hidden]{ display: none; }
+.warn-card{
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  padding: clamp(1.7rem, 4vw, 2.4rem) clamp(1.2rem, 3.5vw, 2rem);
+  background: var(--charcoal);
+  border: 1px solid var(--red-bright);
+  border-radius: 14px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9);
+  text-align: center;
+}
+.warn-close{
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(245,245,243,0.08);
+  color: var(--off-white);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+.warn-close:hover,
+.warn-close:focus-visible{
+  background: var(--red);
+  color: #fff;
+}
+.warn-title{
+  margin: 0 0 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  color: var(--red-bright);
+}
+.warn-text{
+  margin: 0 0 1rem;
+  color: rgba(245,245,243,0.94);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+}
+.warn-lines{
+  margin: 0;
+  color: var(--off-white);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+}
+.warn-lines strong{ color: var(--red-bright); }
