@@ -33,13 +33,13 @@
 <body>
 
 <header class="topbar">
-  <a class="topbar-logo" href="#inicio" aria-label="Central de Partes — inicio">
+  <a class="topbar-logo" href="#inicio" aria-label="Central de Partes — inicio" data-view="home">
     <picture>
       <source srcset="assets/logo.webp" type="image/webp">
       <img src="assets/logo.png" alt="Central de Partes" width="880" height="244">
     </picture>
   </a>
-  <a class="topbar-brand" href="#inicio">Central de Partes - <em>Riohacha</em><span class="topbar-tag">Unica tienda</span></a>
+  <a class="topbar-brand" href="#inicio" data-view="home">Central de Partes - <em>Riohacha</em><span class="topbar-tag">Unica tienda</span></a>
   <div class="topbar-spacer" aria-hidden="true"></div>
 </header>
 
@@ -235,19 +235,23 @@
     </div>
   </section>
 
-  <section class="products" id="productos" aria-label="Nuestros productos">
-    <h2 class="products-title">Nuestros productos</h2>
-    <p class="products-msg">Pronto podrás consultar aquí todos nuestros productos.</p>
   </section>
 
 </main>
+
+<section class="view-products" id="productos" hidden aria-label="Nuestros productos">
+  <div class="products-panel">
+    <p class="products-msg">Aquí podrás ver muy pronto, todos nuestros productos.</p>
+    <button class="products-back" type="button" data-view="home">Volver al inicio</button>
+  </div>
+</section>
 
 <footer>
   © <span id="year"></span> Central de Partes · Repuestos y autopartes · Riohacha, La Guajira
 </footer>
 
 <div class="float-stack">
-  <a class="fab fab-prod" href="#productos" aria-label="Ver productos">PRODUCTOS</a>
+  <a class="fab fab-prod" href="#productos" aria-label="Ver productos" data-view="productos">PRODUCTOS</a>
   <a class="fab fab-call" href="tel:+573007855081" aria-label="Llamar a Central de Partes">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M6.6 10.8c1.4 2.8 3.7 5.1 6.5 6.5l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4.2c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8Z"/>
@@ -263,6 +267,23 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  var home = document.querySelector('.wrap');
+  var productos = document.getElementById('productos');
+
+  function goView(nombre){
+    var esProductos = nombre === 'productos';
+    home.hidden = esProductos;
+    productos.hidden = !esProductos;
+    window.scrollTo(0, 0);
+  }
+
+  document.querySelectorAll('[data-view]').forEach(function(enlace){
+    enlace.addEventListener('click', function(e){
+      e.preventDefault();
+      goView(enlace.getAttribute('data-view'));
+    });
+  });
 
   document.querySelectorAll('.gallery-carousel').forEach(function(carousel){
     var track = carousel.querySelector('.gallery-scroll');
