@@ -496,9 +496,9 @@ footer a{ color: var(--steel); }
   gap: clamp(0.5rem, 1.5vw, 0.8rem);
 }
 .payments-row img{
-  height: clamp(24px, 2.6vw, 32px);
+  height: clamp(48px, 5.2vw, 64px);
   width: auto;
-  padding: 0.5rem 0.8rem;
+  padding: 0.6rem 0.9rem;
   background: #FFFFFF;
   border: 1px solid #E1E1DD;
   border-radius: 5px;
