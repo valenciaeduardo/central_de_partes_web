@@ -734,4 +734,18 @@ a:focus-visible, button:focus-visible{
   font-size: clamp(0.95rem, 2vw, 1.05rem);
   line-height: 1.6;
 }
-.warn-lines strong{ color: var(--red-bright); }
+.warn-lines strong{
+  display: inline-block;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 480px){
+  .warn-lines strong{
+    display: block;
+    font-size: 1.3em;
+    margin: 0.4rem 0 0.1rem;
+  }
+  .warn-lines strong + strong{ margin-top: 0.5rem; }
+}
